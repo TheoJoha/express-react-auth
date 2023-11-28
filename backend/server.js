@@ -3,6 +3,7 @@ import morgan from "morgan"
 import cors from "cors"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
+import noteRouter from "./controllers/note.js"
 
 // read .env file
 dotenv.config()
