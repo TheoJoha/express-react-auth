@@ -1,8 +1,8 @@
 import url from "./url"
 import {redirect}  from "react-router-dom"
-import headers from "./headers"
+import headers from "./header"
 
-export const signUpAction = async ({request}) => {
+export const signupAction = async ({request}) => {
     const formData = await request.formData()
 
     const user = {

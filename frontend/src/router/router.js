@@ -2,13 +2,13 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import App from "../App"
 import Login from "../pages/login"
 import Signup from "../pages/signup"
-import { loginAction, signupAction, logoutAction, createAction, deleteAction } from "./actions"
+import { loginAction, signupAction, logoutAction, createAction, updateAction, deleteAction } from "./actions"
 import Dashboard from "../pages/dashboard"
-import { indexLoader } from "./loaders"
+import { indexLoader, showLoader } from "./loaders"
 import Index from "../pages"
 import Create from "../pages/create"
 import Show from "../pages/show"
-import Update from "../update/show"
+import Update from "../pages/update"
 
 
 const router = createBrowserRouter(createRoutesFromElements(
