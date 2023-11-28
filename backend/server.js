@@ -13,7 +13,8 @@ const app = express()
 // register middleware
 app.use(cors({
     origin: "http://localhost:3000",
-    credentials: true
+    credentials: true,
+    methods: ["GET", "PUT", "POST", "DELETE"]
 })) // allow external requests
 app.use(morgan("dev")) // logging
 app.use(express.json()) // parse json bodies

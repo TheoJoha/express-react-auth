@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Link } from "react-router-dom"
 
 export default function Index() {
     const notes = useLoaderData()
@@ -7,9 +7,9 @@ export default function Index() {
     return <div>
         {notes.map((note) => 
             <div>
-                <h1>
+                <Link to={`/dashboard/${note._id}`}><h1>
                     {note.title}
-                </h1>
+                </h1></Link>
             </div>
         )}
     </div>

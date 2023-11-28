@@ -1,8 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import { Outlet, Link, Form } from "react-router-dom"
+import { Outlet, Link, Form, useNavigate } from "react-router-dom"
+import {useEffect} from "react"
 
 function App() {
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("loggedIn")
+    if(loggedIn === "true") {
+      navigate("/dashboard")
+    }
+  }, [])
   return (
     <div className="App">
       <h1>My Notetaking App</h1>
