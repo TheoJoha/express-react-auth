@@ -34,7 +34,9 @@ export const loginAction = async ({request}) => {
 
     const response = await fetch(url + "/auth/login", {
         method: "post",
-        headers: JSON.stringify(user)
+        headers,
+        credentials: "include",
+        body: JSON.stringify(user)
     })
 
     if (response.status === 400) {
@@ -68,3 +70,25 @@ export const logoutAction = async ({request}) => {
 }
 
 
+export const createAction = async ({request}) => {
+    const formData = await request.formData()
+
+    const note = {
+        title: formData.get("title"),
+        message: formData.get("message")
+    }
+
+    const response = await fetch(url + "/note", {
+        method: "post",
+        headers,
+        credentials: "include",
+        body: JSON.stringify(note)
+    })
+
+    if (response.status === 400) {
+        alert("failed create")
+        return redirect("/dashboard")
+    }
+
+    return redirect("/dashboard")
+}
