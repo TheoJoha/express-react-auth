@@ -11,7 +11,7 @@ function App() {
     if(loggedIn === "true") {
       navigate("/dashboard")
     }
-  }, [])
+  }, [navigate])
   return (
     <div className="App">
       <h1>My Notetaking App</h1>

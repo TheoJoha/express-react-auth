@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
     try {
         const username = req.payload.username
         req.body.username = username
-        const note = await Note.create({req.body})
+        const note = await Note.create(req.body) // fix this
         res.json(note)
     } catch (err) {
         res.status(400).json({ err })
