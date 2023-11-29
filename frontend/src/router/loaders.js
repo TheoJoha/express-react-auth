@@ -12,7 +12,7 @@ export const showLoader = async ({params}) => {
     const id = params.id
 
     const response = await fetch(url + `/note/${id}`, {
-        credentials: "inclide"
+        credentials: "include"
     })
 
 

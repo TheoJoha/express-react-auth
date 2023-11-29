@@ -2,7 +2,6 @@ import { useLoaderData, Link } from "react-router-dom"
 
 export default function Index() {
     const notes = useLoaderData()
-    console.log(notes)
 
     return <div>
         {notes.map((note) => 

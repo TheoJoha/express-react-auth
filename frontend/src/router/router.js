@@ -13,16 +13,19 @@ import Update from "../pages/update"
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
-        <Route path="/" element={<App />} />
-        <Route path="/login" element={<Login />} action={loginAction} />
-        <Route path="/signup" element={<Signup />} action={signupAction} />
-        <Route path="/logout" action={logoutAction} />
-        <Route path="/dashboard/" element={<Dashboard />} />
-        <Route path="" element={<Index />} loader={indexLoader} />
-        <Route path="create" element={<Create />} action={createAction} />
-        <Route path=":id/" element={<Show />} loader={showLoader} />
-        <Route path="update" element={<Update/>}  loader={showLoader} action={updateAction}/>
-        <Route path="delete" action={deleteAction} />
+        <Route path="/" element={<App />} >
+            <Route path="/login" element={<Login />} action={loginAction} />
+            <Route path="/signup" element={<Signup />} action={signupAction} />
+            <Route path="/logout" action={logoutAction} />
+            <Route path="/dashboard/" element={<Dashboard />} >
+                <Route path="" element={<Index />} loader={indexLoader} />
+                <Route path="create" element={<Create />} action={createAction} />
+                <Route path=":id/" element={<Show />} loader={showLoader} >
+                    <Route path="update" element={<Update/>}  loader={showLoader} action={updateAction}/>
+                    <Route path="delete" action={deleteAction} />
+                </Route>
+            </Route>
+        </Route>
     </>
 ))
 
