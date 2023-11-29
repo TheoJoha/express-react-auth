@@ -23,8 +23,8 @@ app.use(express.json()) // parse json bodies
 app.use(cookieParser())
 
 // routes and routers
-app.use("/", noteRouter)
-app.use("/", authRouter)
+app.use("/note", noteRouter)
+app.use("/auth", authRouter)
 
 // test-route
 app.get("/test", (req, res) => {

@@ -13,8 +13,8 @@ export const signupAction = async ({ request }) => {
     const response = await fetch(url + "/auth/signup", {
         method: "post",
         headers: JSON.stringify(user),
-        mode: "cors",
-        cache: "default",
+        // mode: "cors",
+        // cache: "default",
     })
 
     if (response.status === 400) {

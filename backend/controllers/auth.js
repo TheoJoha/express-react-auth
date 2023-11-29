@@ -5,6 +5,8 @@ import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
 import cookieParser from "cookie"
 
+dotenv.config()
+
 
 // create the router
 const router = express.Router()
@@ -32,14 +34,18 @@ router.post("/login", async (req, res) => {
     try {
         const { username, password } = req.body
         // get the user
-        const user = await User.find({ username })
+        console.log(1)
+        const user = await User.findOne({ username })
 
         if (user) {
+            console.log(2)
             const passwordCheck = await bcrypt.compare(password, user.password)
+            console.log(3)
             if (passwordCheck) {
+                console.log(4)
                 const payload = { username }
-
-                const token = await jwt.sign(payload, proces.env.SECRET)
+                const token = await jwt.sign(payload, process.env.SECRET)
+                console.log(5)
                 res.cookie("token", token, { httpOnly: true }).json({ payload, status: "logged in" })
             } else {
                 res.status(400).json({ error: "password does not match" })

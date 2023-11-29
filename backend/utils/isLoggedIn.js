@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken"
-
+import dotenv from "dotenv"
+dotenv.config()
 
 async function isLoggedIn(req, res, next) {
     try {
