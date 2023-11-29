@@ -12,7 +12,9 @@ export const signupAction = async ({ request }) => {
 
     const response = await fetch(url + "/auth/signup", {
         method: "post",
-        headers: JSON.stringify(user),
+        headers,
+        credentials: "include",
+        body: JSON.stringify(user)
         // mode: "cors",
         // cache: "default",
     })
@@ -70,6 +72,7 @@ export const logoutAction = async ({ request }) => {
         return redirect("/logout")
     }
 
+    localStorage.removeItem("loggedIn")
     return redirect("/")
 }
 
@@ -108,7 +111,7 @@ export const updateAction = async ({ request, params }) => {
     }
 
     const response = await fetch(url + `/note/${id}`, {
-        method: "post",
+        method: "put",
         headers,
         credentials: "include",
         body: JSON.stringify(note)

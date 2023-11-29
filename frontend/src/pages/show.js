@@ -8,7 +8,7 @@ export default function Show() {
         <h2>{note.message}</h2>
         <Link to={`/dashboard/${note._id}/update`}><button>Update</button></Link>
         <Outlet />
-        <Form action={`/dashboard/${note._id}/delete`}><buton>Delete</buton></Form>
+        <Form action={`/dashboard/${note._id}/delete`} method="post"><buton>Delete</buton></Form>
     </section>
 }
 
