@@ -16,7 +16,7 @@ async function isLoggedIn(req, res, next) {
             throw "Not logged in"
         }
     } catch (err) {
-        res.status(400).json({ error })
+        res.status(400).json({ err })
     }
 }
 

@@ -1,5 +1,5 @@
 import express from "express"
-import Note from "../models/note.js"
+import Note from "../models/notes.js"
 import isLoggedIn from "../utils/isLoggedIn.js"
 
 const router = express.Router()

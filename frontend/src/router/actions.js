@@ -1,8 +1,8 @@
 import url from "./url"
-import {redirect}  from "react-router-dom"
+import { redirect } from "react-router-dom"
 import headers from "./header"
 
-export const signupAction = async ({request}) => {
+export const signupAction = async ({ request }) => {
     const formData = await request.formData()
 
     const user = {
@@ -12,7 +12,9 @@ export const signupAction = async ({request}) => {
 
     const response = await fetch(url + "/auth/signup", {
         method: "post",
-        headers: JSON.stringify(user)
+        headers: JSON.stringify(user),
+        mode: "cors",
+        cache: "default",
     })
 
     if (response.status === 400) {
@@ -24,7 +26,7 @@ export const signupAction = async ({request}) => {
 }
 
 
-export const loginAction = async ({request}) => {
+export const loginAction = async ({ request }) => {
     const formData = await request.formData()
 
     const user = {
@@ -50,7 +52,7 @@ export const loginAction = async ({request}) => {
 }
 
 
-export const logoutAction = async ({request}) => {
+export const logoutAction = async ({ request }) => {
     const formData = await request.formData()
 
     const user = {
@@ -72,7 +74,7 @@ export const logoutAction = async ({request}) => {
 }
 
 
-export const createAction = async ({request}) => {
+export const createAction = async ({ request }) => {
     const formData = await request.formData()
 
     const note = {
@@ -95,9 +97,9 @@ export const createAction = async ({request}) => {
     return redirect("/dashboard")
 }
 
-export const updateAction = async ({request, params}) => {
+export const updateAction = async ({ request, params }) => {
     const id = params.id
-    
+
     const formData = await request.formData()
 
     const note = {
@@ -120,7 +122,7 @@ export const updateAction = async ({request, params}) => {
     return redirect("/dashboard")
 }
 
-export const deleteAction = async ({params}) => {
+export const deleteAction = async ({ params }) => {
     const id = params.id
 
     const response = await fetch(url + `/note/${id}`, {

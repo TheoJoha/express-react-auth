@@ -4,6 +4,8 @@ import cors from "cors"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
 import noteRouter from "./controllers/note.js"
+import authRouter from "./controllers/auth.js"
+
 
 // read .env file
 dotenv.config()
@@ -21,6 +23,8 @@ app.use(express.json()) // parse json bodies
 app.use(cookieParser())
 
 // routes and routers
+app.use("/", noteRouter)
+app.use("/", authRouter)
 
 // test-route
 app.get("/test", (req, res) => {

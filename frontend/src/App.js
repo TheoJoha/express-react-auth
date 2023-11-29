@@ -12,6 +12,7 @@ function App() {
       navigate("/dashboard")
     }
   }, [navigate])
+  
   return (
     <div className="App">
       <h1>My Notetaking App</h1>

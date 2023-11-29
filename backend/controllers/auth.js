@@ -1,10 +1,9 @@
 import express from "express"
-import User from "../models/user"
+import User from "../models/user.js"
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
-import dotenv from ".env"
+import dotenv from "dotenv"
 import cookieParser from "cookie"
-import authRouter from "./controllers/auth.js"
 
 
 // create the router
@@ -24,7 +23,7 @@ router.post("/signup", async (req, res) => {
         // response
         res.json({ status: "User Created" })
     } catch (err) {
-        res.status(400).json({ error })
+        res.status(400).json({ err })
     }
 })
 
